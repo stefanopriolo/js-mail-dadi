@@ -5,15 +5,19 @@ const correctMail = [
   "stebbijpriolo@gmail.com",
 ];
 
-for (let i = 0; i < correctMail.lenght; i++) {
-  let button = document.getElementById("submit");
-  button.addEventListener("click", function () {
-    let mail = document.getElementById("exampleInputEmail1.value");
-  });
-  console.log[i];
-  if (mail === correctMail[0]) {
-    console.log("Hai effettuato l'accesso!");
-  } else {
-    console.log("Email errata, riprova!");
+const button = document.getElementById("submit");
+button.addEventListener("click", function () {
+  for (let i = 0; i < correctMail.length; i++) {
+    const mail = document.getElementById("exampleInputEmail1");
+    const text = document.getElementById("emailHelp");
+    if (mail.value === correctMail[i]) {
+      console.log("Hai effettuato l'accesso!");
+      text.innerHTML = "Hai effettuato l'accesso!";
+      break;
+    } else {
+      console.log("Email errata, riprova!");
+      text.innerHTML = "Email errata, riprova!";
+      break;
+    }
   }
-}
+});
