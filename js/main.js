@@ -7,17 +7,20 @@ const correctMail = [
 
 const button = document.getElementById("submit");
 button.addEventListener("click", function () {
+  let found = false;
+  const mail = document.getElementById("exampleInputEmail1");
+  const text = document.getElementById("emailHelp");
   for (let i = 0; i < correctMail.length; i++) {
-    const mail = document.getElementById("exampleInputEmail1");
-    const text = document.getElementById("emailHelp");
     if (mail.value === correctMail[i]) {
-      console.log("Hai effettuato l'accesso!");
-      text.innerHTML = "Hai effettuato l'accesso!";
-      break;
-    } else {
-      console.log("Email errata, riprova!");
-      text.innerHTML = "Email errata, riprova!";
+      found = true;
       break;
     }
+  }
+  if (found === true) {
+    console.log("Hai effettuato l'accesso!");
+    text.innerHTML = "Hai effettuato l'accesso!";
+  } else {
+    console.log("La mail è errata!");
+    text.innerHTML = "La mail è errata!";
   }
 });
